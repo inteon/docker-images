@@ -47,6 +47,7 @@ RUN apt-get update && \
       , 'data.table' \
       , 'devtools' \
       , 'dplyr' \
+      , 'dummy' \
       , 'dslabs' \
       , 'e1071' \
       , 'ergm' \
@@ -101,6 +102,7 @@ RUN apt-get update && \
       , 'topicdoc' \
       , 'topicmodels' \
       , 'tree' \
+      , 'udpipe' \
       , 'vader' \
       , 'wordcloud' \
       , 'wordcloud2' \
