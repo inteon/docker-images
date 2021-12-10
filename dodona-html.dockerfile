@@ -15,7 +15,7 @@ RUN apt-get update && \
         beautifulsoup4==4.10.0 \
         cssselect==1.1.0 \
         lxml==4.6.4 \
-        tinycss2==1.1.0 \
+        tinycss2==1.1.1 \
         py-emmet==1.1.10 \
         html-similarity==0.3.3 \
         colour==0.1.5
