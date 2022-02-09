@@ -1,11 +1,8 @@
 FROM python:3.10.2-slim-bullseye
 
-# Environment Checkstyle
-ENV CHECKSTYLE_JAR /opt/checkstyle-8.41-all.jar
 # Environment Kotlin
 ENV SDKMAN_DIR /usr/local/sdkman
 ENV PATH $SDKMAN_DIR/candidates/kotlin/current/bin:$PATH
-ENV KTLINT_JAR /opt/ktlint.jar
 ENV NODE_PATH /usr/lib/node_modules
 # Add manual directory for default-jdk
 RUN mkdir -p /usr/share/man/man1mkdir -p /usr/share/man/man1 \
@@ -22,6 +19,7 @@ RUN mkdir -p /usr/share/man/man1mkdir -p /usr/share/man/man1 \
  && apt-get install -y --no-install-recommends \
        # TESTed Java and Kotlin judge dependency
        openjdk-17-jdk=17.0.2+8-1~deb11u1 \
+       checkstyle=8.36.1-1 \
        # TESTed Haskell judge dependency
        haskell-platform=2014.2.0.0.debian8 \
        hlint=3.1.6-1 \
@@ -35,20 +33,19 @@ RUN mkdir -p /usr/share/man/man1mkdir -p /usr/share/man/man1 \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/* \
  # TESTed Judge depencencies
- && pip install --no-cache-dir --upgrade jsonschema==3.2.0 psutil==5.7.0 mako==1.1.2 pydantic==1.7.3 toml==0.10.1 typing_inspect==0.6.0 pylint==2.6.0 lark==0.10.1 pyyaml==5.4 Pygments==2.7.4 python-i18n==0.3.9 \
+ && pip install --no-cache-dir --upgrade jsonschema==3.2.0 psutil==5.7.0 mako==1.1.2 pydantic==1.7.3 typing_inspect==0.6.0 pylint==2.6.0 lark==0.10.1 pyyaml==5.4 Pygments==2.7.4 python-i18n==0.3.9 \
  # TESTed Kotlin judge dependencies
  && bash -c 'set -o pipefail && curl -s "https://get.sdkman.io?rcupdate=false" | bash' \
  && chmod a+x "$SDKMAN_DIR/bin/sdkman-init.sh" \
- && bash -c "source \"$SDKMAN_DIR/bin/sdkman-init.sh\" && sdk install kotlin 1.5.21" \
+ && bash -c "source \"$SDKMAN_DIR/bin/sdkman-init.sh\" && sdk install kotlin 1.6.10" \
+ && curl -sSLO https://github.com/pinterest/ktlint/releases/download/0.43.2/ktlint \
+ && chmod a+x ktlint \
+ && mv ktlint /usr/local/bin \
  # JavaScript dependencies
- && npm install -g eslint@7.23.0 abstract-syntax-tree@2.17.6 \
+ && npm install -g eslint@8.7 abstract-syntax-tree@2.17.6 \
  # Haskell dependencies
  && cabal update \
  && cabal install aeson --global --force-reinstalls \
- # Download Checkstyle
- && curl -H 'Accept: application/vnd.github.v4.raw' -L  https://github.com/checkstyle/checkstyle/releases/download/checkstyle-8.41/checkstyle-8.41-all.jar --output "$CHECKSTYLE_JAR" \
- # Download KTlint
- && curl -H 'Accept: application/vnd.github.v4.raw' -L https://github.com/pinterest/ktlint/releases/download/0.42.1/ktlint --output "$KTLINT_JAR" \
  # Make sure the students can't find our secret path, which is mounted in
  # /mnt with a secure random name.
  && chmod 711 /mnt \
