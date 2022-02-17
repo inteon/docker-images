@@ -1,4 +1,4 @@
-FROM python:3.10.2-slim-buster
+FROM python:3.10.2-slim-bullseye
 
 RUN apt-get update && \
     # install procps, otherwise pkill cannot be not found

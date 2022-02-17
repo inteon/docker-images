@@ -1,4 +1,4 @@
-FROM node:14.16.0-buster-slim
+FROM node:14.16.0-bullseye-slim
 
 RUN chmod 711 /mnt && \
     groupmod -n runner node && \
