@@ -16,12 +16,12 @@ RUN mkdir -p /usr/share/man/man1mkdir -p /usr/share/man/man1 \
        curl=7.64.0-4+deb10u2 \
        zip=3.0-11+b1 \
        unzip=6.0-23+deb10u2 \
- # Add nodejs v14
- && bash -c 'set -o pipefail && curl -fsSL https://deb.nodesource.com/setup_14.x | bash -' \
+ # Add nodejs v16
+ && bash -c 'set -o pipefail && curl -fsSL https://deb.nodesource.com/setup_16.x | bash -' \
  # Install programming languages
  && apt-get install -y --no-install-recommends \
        # TESTed Java and Kotlin judge dependency
-       openjdk-11-jdk=11.0.12+7-2~deb10u1 \
+       openjdk-11-jdk=11.0.14+9-1~deb10u1 \
        # TESTed Haskell judge dependency
        haskell-platform=2014.2.0.0.debian8 \
        hlint=2.1.10-2+b1 \
@@ -29,7 +29,7 @@ RUN mkdir -p /usr/share/man/man1mkdir -p /usr/share/man/man1 \
        gcc-8=8.3.0-6 \
        cppcheck=1.86-1 \
        # TESTed Javascript judge dependency
-       nodejs=14.18.1-deb-1nodesource1 \
+       nodejs=16.14.0-deb-1nodesource1 \
        # TESTed bash judge dependency
        shellcheck=0.5.0-3 \
  && apt-get clean \
