@@ -5,13 +5,13 @@ FROM r-base:4.1.2
 RUN apt-get update && \
   apt-get install -y --no-install-recommends \
       default-jdk=2:1.11-72 \
-      libcurl4-openssl-dev=7.79.1-2 \
-      libfontconfig-dev=2.13.1-4.2 \
-      libfreetype-dev=2.11.0+dfsg-1 \
-      libgsl-dev=2.6+dfsg-2 \
-      libssl-dev=1.1.1l-1 \
+      libcurl4-openssl-dev=7.81.0-1 \
+      libfontconfig-dev=2.13.1-4.4 \
+      libfreetype-dev=2.11.1+dfsg-1 \
+      libgsl-dev=2.7.1+dfsg-3 \
+      libssl-dev=1.1.1m-1 \
       libxml2-dev=2.9.12+dfsg-5+b1 \
-      procps=2:3.3.17-5 \
+      procps=2:3.3.17-6 \
       && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/* && \
