@@ -15,9 +15,9 @@ RUN chmod 711 /mnt && \
   rm -rf /var/lib/apt/lists/* && \
   apt-get clean && \
   # Judge dependencies
-  pip install --no-cache-dir --upgrade pylint==2.6.0 jsonschema==3.2.0 pyshp==2.1.2 psutil==5.7.3 mako==1.1.3 pydantic==1.5.1 pyhumps==1.6.1 typing_inspect==0.6.0 && \
+  pip install --no-cache-dir --upgrade pylint==2.12.2 jsonschema==3.2.0 pyshp==2.2.0 psutil==5.9.0 mako==1.1.6 pydantic==1.9.0 pyhumps==3.5.3 typing_inspect==0.7.1 && \
   # Exercise dependencies
-  pip install --no-cache-dir --upgrade numpy==1.19.4 biopython==1.78 sortedcontainers==2.2.2 pandas==1.1.4
+  pip install --no-cache-dir --upgrade numpy==1.22.2 biopython==1.79 sortedcontainers==2.4.0 pandas==1.4.1
 
 WORKDIR /tmp
 
