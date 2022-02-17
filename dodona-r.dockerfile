@@ -8,6 +8,7 @@ RUN apt-get update && \
       libcurl4-openssl-dev=7.81.0-1 \
       libfontconfig-dev=2.13.1-4.4 \
       libfreetype-dev=2.11.1+dfsg-1 \
+      libnlopt-dev=2.7.1-3 \
       libgsl-dev=2.7.1+dfsg-3 \
       libssl-dev=1.1.1m-1 \
       libxml2-dev=2.9.12+dfsg-5+b1 \
