@@ -10,9 +10,11 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
     chmod 711 /mnt && \
-    useradd -m runner && \
-    cd /usr/src/gtest && \
-    cmake CMakeLists.txt && \
+    useradd -m runner
+
+WORKDIR /usr/src/gtest
+
+RUN cmake CMakeLists.txt && \
     make && \
     cp -- *.a /usr/lib && \
     mkdir /usr/local/lib/gtest && \
