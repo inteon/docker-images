@@ -27,7 +27,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get clean && \
     # Judge dependencies
-    pip install --no-cache-dir --upgrade pygments==2.4.2 && \
+    pip install --no-cache-dir --upgrade pygments==2.11.2 && \
     chmod 711 /mnt && \
     useradd -m runner && \
     mkdir /home/runner/workdir && \

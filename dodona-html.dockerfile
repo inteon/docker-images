@@ -14,7 +14,7 @@ RUN apt-get update && \
     pip install --no-cache-dir --upgrade \
         beautifulsoup4==4.10.0 \
         cssselect==1.1.0 \
-        lxml==4.6.4 \
+        lxml==4.8.0 \
         tinycss2==1.1.1 \
         py-emmet==1.1.10 \
         html-similarity==0.3.3 \
