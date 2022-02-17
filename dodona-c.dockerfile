@@ -8,27 +8,20 @@ RUN apt-get update && \
                        make=4.2.1-1.2 \
                        cmake=3.13.4-1 && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
-# Make sure the students can't find our secret path, which is mounted in
-# /mnt with a secure random name.
-RUN ["chmod", "711", "/mnt"]
-
-# Add the user which will run the student's code and the judge.
-RUN ["useradd", "-m", "runner"]
-
-# https://gist.github.com/Cartexius/4c437c084d6e388288201aadf9c8cdd5
-WORKDIR /usr/src/gtest
-RUN ["cmake", "CMakeLists.txt"]
-RUN ["make"]
-RUN cp -- *.a /usr/lib
-RUN ["mkdir", "/usr/local/lib/gtest"]
-RUN ["ln", "-s", "/usr/lib/libgtest.a", "/usr/local/lib/gtest/libgtest.a"]
-RUN ["ln", "-s", "/usr/lib/libgtest_main.a", "/usr/local/lib/gtest/libgtest_main.a"]
-
+    rm -rf /var/lib/apt/lists/* && \
+    chmod 711 /mnt && \
+    useradd -m runner && \
+    cd /usr/src/gtest && \
+    cmake CMakeLists.txt && \
+    make && \
+    cp -- *.a /usr/lib && \
+    mkdir /usr/local/lib/gtest && \
+    ln -s /usr/lib/libgtest.a /usr/local/lib/gtest && \
+    ln -s /usr/lib/libgtest_main.a /usr/local/lib/gtest
+    
 # As the runner user
 USER runner
-RUN ["mkdir", "/home/runner/workdir"]
+RUN mkdir /home/runner/workdir
 WORKDIR /home/runner/workdir
 
 COPY main.sh /main.sh
