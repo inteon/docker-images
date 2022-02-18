@@ -3,10 +3,10 @@ FROM python:3.10.2-slim-bullseye
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
                        jshon=20131010-3+b1 \
-                       libgtest-dev=1.8.1-3 \ 
-                       g++=4:8.3.0-1 \
-                       make=4.2.1-1.2 \
-                       cmake=3.13.4-1 && \
+                       libgtest-dev=1.10.0.20201025-1.1 \
+                       g++=4:10.2.1-1 \
+                       make=4.3-4.1 \
+                       cmake=3.18.4-2+deb11u1 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
     chmod 711 /mnt && \
