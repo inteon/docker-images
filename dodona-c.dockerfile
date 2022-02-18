@@ -16,7 +16,7 @@ WORKDIR /usr/src/gtest
 
 RUN cmake CMakeLists.txt && \
     make && \
-    cp -- *.a /usr/lib && \
+    cp -- lib/*.a /usr/lib && \
     mkdir /usr/local/lib/gtest && \
     ln -s /usr/lib/libgtest.a /usr/local/lib/gtest && \
     ln -s /usr/lib/libgtest_main.a /usr/local/lib/gtest

@@ -6,7 +6,7 @@ RUN chmod 711 /mnt && \
   apt-get -y install --no-install-recommends \
      emboss=6.6.0+dfsg-9 \
      gcc=4:10.2.1-1 \
-     g++=4:8.3.0-1 \
+     g++=4:10.2.1-1 \
      fontconfig=2.13.1-4.2 \
      libc6-dev=2.31-13+deb11u2 \
      make=4.3-4.1 \
