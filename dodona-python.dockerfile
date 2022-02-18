@@ -4,14 +4,14 @@ RUN chmod 711 /mnt && \
   useradd -m runner && \
   apt-get update && \
   apt-get -y install --no-install-recommends \
-     emboss=6.6.0+dfsg-7+b1 \
-     gcc=4:8.3.0-1 \
+     emboss=6.6.0+dfsg-9 \
+     gcc=4:10.2.1-1 \
      g++=4:8.3.0-1 \
-     fontconfig=2.13.1-2 \
-     libc6-dev=2.28-10 \
-     make=4.2.1-1.2 \
-     wget=1.20.1-1.1 \
-     zlib1g-dev=1:1.2.11.dfsg-1 && \
+     fontconfig=2.13.1-4.2 \
+     libc6-dev=2.31-13+deb11u2 \
+     make=4.3-4.1 \
+     wget=1.21-1+deb11u1 \
+     zlib1g-dev=1:1.2.11.dfsg-2 && \
   rm -rf /var/lib/apt/lists/* && \
   apt-get clean && \
   # Judge dependencies
