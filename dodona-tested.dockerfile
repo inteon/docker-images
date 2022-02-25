@@ -45,7 +45,7 @@ RUN mkdir -p /usr/share/man/man1mkdir -p /usr/share/man/man1 \
  && npm install -g eslint@8.7 abstract-syntax-tree@2.17.6 \
  # Haskell dependencies
  && cabal update \
- && cabal install aeson --global --force-reinstalls \
+ && cabal v1-install --global aeson \
  # Make sure the students can't find our secret path, which is mounted in
  # /mnt with a secure random name.
  && chmod 711 /mnt \
