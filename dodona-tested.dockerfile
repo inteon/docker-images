@@ -1,4 +1,4 @@
-FROM python:3.10.2-slim-bullseye
+FROM python:3.10.3-slim-bullseye
 
 # Environment Kotlin
 ENV SDKMAN_DIR /usr/local/sdkman
