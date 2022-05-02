@@ -1,4 +1,4 @@
-FROM racket/racket:8.4
+FROM racket/racket:8.5
 
 # add generic tools
 RUN apt-get update \
