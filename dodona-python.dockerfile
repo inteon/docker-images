@@ -1,4 +1,4 @@
-FROM python:3.10.4-slim-bullseye
+FROM python:3.10.5-slim-bullseye
 
 RUN chmod 711 /mnt && \
   useradd -m runner && \
@@ -18,19 +18,19 @@ RUN chmod 711 /mnt && \
   apt-get clean && \
   # Judge dependencies
   pip install --no-cache-dir --upgrade \
-    Pillow==9.0.1 \
+    Pillow==9.1.1 \
     cairosvg==2.5.2 \
-    jsonschema==3.2.0 \
-    mako==1.1.6 \
-    psutil==5.9.0 \
-    pydantic==1.9.0 \
-    pyhumps==3.5.3 \
-    pylint==2.12.2 \
-    pyshp==2.2.0 \
-    svg-turtle==0.4.0 \
+    jsonschema==4.6.0 \
+    mako==1.2.0 \
+    psutil==5.9.1 \
+    pydantic==1.9.1 \
+    pyhumps==3.7.2 \
+    pylint==2.14.3 \
+    pyshp==2.3.0 \
+    svg-turtle==0.4.1 \
     typing_inspect==0.7.1 && \
   # Exercise dependencies
-  pip install --no-cache-dir --upgrade numpy==1.22.2 biopython==1.79 sortedcontainers==2.4.0 pandas==1.4.1
+  pip install --no-cache-dir --upgrade numpy==1.23.0 biopython==1.79 sortedcontainers==2.4.0 pandas==1.4.3
 
 WORKDIR /tmp
 
