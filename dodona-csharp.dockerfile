@@ -1,4 +1,4 @@
-FROM mono:6.12.0.122
+FROM mono:6.12.0.182
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends jshon=20131010-3+b1 && \
